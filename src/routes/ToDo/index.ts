@@ -21,6 +21,19 @@ router.get("/task", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/allTasks", async (req, res) => {
+  try {
+    const userName = req.query.userName;
+    console.log("query", req.query);
+    console.log("userName", userName);
+    const tasks = await getTasks(userName as string);
+    res.status(200).json(tasks);
+  } catch (e) {
+    logger.error(e);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const { userId, username, taskName, taskDescription } = req.body;
