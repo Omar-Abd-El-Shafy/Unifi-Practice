@@ -1,5 +1,6 @@
 import express from "express";
 import { Request, Response } from "express";
+import authenticateJWT from "../../middleware/auth";
 const router = express.Router();
 import {
   getTasks,
@@ -10,7 +11,7 @@ import {
 } from "../../services/ToDo";
 import { logger } from "../../core/logger";
 
-router.get("/task", async (req: Request, res: Response) => {
+router.get("/task", authenticateJWT, async (req: Request, res: Response) => {
   try {
     const taskId = req.query.taskId;
     const task = await getTask(taskId as string);
@@ -21,10 +22,14 @@ router.get("/task", async (req: Request, res: Response) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticateJWT, async (req, res) => {
   try {
-    const { userId, username, taskName, taskDescription } = req.body;
-    const task = await addTask(userId, username, taskName, taskDescription);
+    const { taskName, taskDescription } = req.body;
+    //@ts-ignore
+    const userName = req.user.userName;
+    //@ts-ignore
+    const userId = req.user.id;
+    const task = await addTask(userId, userName, taskName, taskDescription);
     res.status(200).json(task);
   } catch (e) {
     logger.error(e);
@@ -32,7 +37,19 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/", async (req: Request, res: Response) => {
+router.get("/allTasks", authenticateJWT, async (req, res) => {
+  try {
+    //@ts-ignore
+    const userName = req.user.userName;
+    const tasks = await getTasks(userName as string);
+    res.status(200).json(tasks);
+  } catch (e) {
+    logger.error(e);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.delete("/", authenticateJWT, async (req: Request, res: Response) => {
   try {
     const taskId = req.query.taskId;
     const task = await deleteTask(taskId as string);
@@ -43,7 +60,7 @@ router.delete("/", async (req: Request, res: Response) => {
   }
 });
 
-router.put("/:taskId", async (req: Request, res: Response) => {
+router.put("/:taskId", authenticateJWT, async (req: Request, res: Response) => {
   try {
     const taskId = req.params.taskId;
     const task = await updateTask(taskId as string, req.body);

@@ -1,6 +1,6 @@
 import Task from "./models/taskModel";
 import { logger } from "../../core/logger";
-import User from "./models/userModel";
+import User from "../User/models/userModel";
 import mongoose from "mongoose";
 export const getUser = async (userName: string) => {
   try {

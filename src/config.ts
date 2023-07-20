@@ -7,3 +7,5 @@ console.log("port", port);
 export const mongoConfig = {
   url: process.env.DB_URL || "",
 };
+
+export const jwtSecret = process.env.SECRET;

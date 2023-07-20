@@ -33,4 +33,8 @@ app.use(
 
 app.use("/", routes);
 
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  logger.error(err);
+  res.status(err.status).json(err.message);
+});
 export default app;
