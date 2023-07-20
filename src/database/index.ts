@@ -6,7 +6,6 @@ export const connect = () => {
   try {
     const database = mongoConfig.url;
     mongoose.connect(database);
-    console.log("database", { database });
 
     const { connection } = mongoose;
     connection.on("connected", () => {

@@ -13,7 +13,6 @@ const authenticateJWT = async (
 
     try {
       const user = jwt.verify(token, jwtSecret as string);
-      console.log("userin JWT", user);
       //@ts-ignore
       req.user = user;
       next();

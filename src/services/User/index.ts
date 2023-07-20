@@ -8,7 +8,6 @@ import { jwtSecret } from "../../config";
 export const getUserByEmail = async (email: string) => {
   try {
     const user = await User.findOne({ email: email });
-    console.log("user", user);
     return user;
   } catch (e) {
     logger.error(e);

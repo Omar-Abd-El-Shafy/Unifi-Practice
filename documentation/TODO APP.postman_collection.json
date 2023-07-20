@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "e242bfba-be5e-46fd-a7b1-b5a386b6e890",
+		"name": "TODO APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28655862"
+	},
+	"item": [
+		{
+			"name": "createTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"64b9282ec41b1a3cbc62e541\",\r\n    \"userName\":\"Omar\",\r\n    \"taskName\": \"trial\",\r\n    \"taskDescription\": \"mmmm\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/toDo",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"toDo"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:5000/toDo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"64b9282ec41b1a3cbc62e541\",\r\n    \"userName\":\"Omar\",\r\n    \"taskName\": \"trial after auth\",\r\n    \"taskDescription\": \"gfg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/toDo",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"toDo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fa-DxtK9GQPbhfr2KpIL8O7S/tNo0k\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Jul 2023 14:32:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"64b93b87422859ac9359f040\",\n    \"userName\": \"Omar1234\",\n    \"taskName\": \"trial after auth\",\n    \"taskDescription\": \"gfg\",\n    \"completed\": false,\n    \"_id\": \"64b94588687b421dcbb55698\",\n    \"createdAt\": \"2023-07-20T14:32:40.984Z\",\n    \"updatedAt\": \"2023-07-20T14:32:40.984Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "getAllTasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YjkzYjg3NDIyODU5YWM5MzU5ZjA0MCIsInVzZXJOYW1lIjoiT21hcjEyMzQiLCJpYXQiOjE2ODk4NjIzNDQsImV4cCI6MTY4OTg2NTk0NH0.wiLp0tFsAFkbddMz1icohZ33Q_kF56xzjScYJSlc0tU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/toDo/allTasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"toDo",
+						"allTasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTaskbyId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YjkzYjg3NDIyODU5YWM5MzU5ZjA0MCIsInVzZXJOYW1lIjoiT21hcjEyMzQiLCJpYXQiOjE2ODk4NjIzNDQsImV4cCI6MTY4OTg2NTk0NH0.wiLp0tFsAFkbddMz1icohZ33Q_kF56xzjScYJSlc0tU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/toDo/task?taskId=64b92c2ec41b1a3cbc62e548",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"toDo",
+						"task"
+					],
+					"query": [
+						{
+							"key": "taskId",
+							"value": "64b92c2ec41b1a3cbc62e548"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getTaskbyId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/toDo/task?taskId=64b92c2ec41b1a3cbc62e548",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"toDo",
+								"task"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "64b92c2ec41b1a3cbc62e548"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ec-s/Z7/mx5HPqKjTuOYO7PjPKzpkw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Jul 2023 14:33:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"64b92c2ec41b1a3cbc62e548\",\n    \"userId\": \"64b9282ec41b1a3cbc62e541\",\n    \"taskName\": \"hello\",\n    \"taskDescription\": \"gggg\",\n    \"completed\": false,\n    \"createdAt\": \"2023-07-20T12:34:41.171Z\",\n    \"updatedAt\": \"2023-07-20T13:10:51.312Z\",\n    \"__v\": 0,\n    \"userName\": \"Omar\"\n}"
+				}
+			]
+		},
+		{
+			"name": "updateTaskByMid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "router.get(\"/allTasks\", async (req, res) => {\r\n  try {\r\n    const userName = req.query.userName;\r\n    console.log(\"query\", req.query);\r\n    console.log(\"userName\", userName);\r\n    const tasks = await getTasks(userName as string);\r\n    res.status(200).json(tasks);\r\n  } catch (e) {\r\n    logger.error(e);\r\n    res.status(500).json({ message: \"Internal Server Error\" });\r\n  }\r\n});",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/toDo/64b92c2ec41b1a3cbc62e548",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"toDo",
+						"64b92c2ec41b1a3cbc62e548"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTaskbyID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/toDo?taskId=64b929e172a4689057fcda68",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"toDo"
+					],
+					"query": [
+						{
+							"key": "taskId",
+							"value": "64b929e172a4689057fcda68"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"om@gmail.com\",\r\n    \"password\":\"pahntom@12\",\r\n    \"userName\": \"Omar1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"om@gmail.com\",\r\n    \"password\":\"pahntom@12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
