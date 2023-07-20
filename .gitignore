@@ -1,0 +1,58 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.idea
+
+# ignore vs code project config files
+.vs
+.vscode
+
+# ignore logs
+logs
+*.log
+npm-debug.log*
+
+# ignore 3rd party lib
+node_modules
+
+# TypeScript v1 declaration files
+typings/
+
+# Ignore built files
+build
+
+# ignore test converage
+coverage
+
+# Environment varibles
+*.env
+*.env.test
+
+# Optional eslint cache
+.eslintcache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+ehthumbs.db
+Icon?
+Thumbs.db
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Sonar-test related
+.scannerwork
+coverage
+reports
