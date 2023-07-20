@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && npm run serve",
+    "seed": "node -r dotenv/config  build/database/seeder.js",
     "build": "npm run clean && npm run ts-build",
     "clean": "rimraf ./build ",
     "ts-build": "tsc",
