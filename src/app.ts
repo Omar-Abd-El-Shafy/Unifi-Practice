@@ -5,16 +5,20 @@ import { corsURL, port } from "./config";
 import routes from "./routes";
 import { logger } from "./core/logger";
 import morgan from "morgan";
-import { connect } from "./database";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: corsURL, optionsSuccessStatus: 200 }));
+app.use(
+  cors({
+    origin: corsURL,
+    optionsSuccessStatus: 200,
+  })
+);
+
 app.use(correlationId());
 //datasbase Conenction
-connect();
 
 //Logger
 app.use(
